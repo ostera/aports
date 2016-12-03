@@ -5,10 +5,7 @@ install:
 script: |
   source .travis/common.sh
   alpine_run $ALPINE_USER .travis/build-pkgs
-  cd scripts
-    chmod +x ./*.sh
-    alpine_run $ALPINE_USER mkimage.sh --platform rpi --arch armhf
-  cd ..
-  ls -la scripts
+  chmod +x scripts/*.sh
+  alpine_run $ALPINE_USER scripts/mkimage.sh --platform rpi --arch armhf
 notifications:
   email: false
